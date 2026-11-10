@@ -44,7 +44,7 @@ I am Junteng Liu, a first-year Ph.D. candidate at the HKUST NLP Group, a researc
 - **Composing Parameter-Efficient Modules with Arithmetic Operations** (NeurIPS 2023).
   Authors: Jinghan Zhang, Shiqi Chen, Junteng Liu, Junxian He.
 
-You can also find my publications on the [Publications](/publications/) page.
+You can also find my publications on the [Publications]({{ site.baseurl }}/publications/) page.
 
 ## Skills
 
