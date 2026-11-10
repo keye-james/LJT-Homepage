@@ -18,3 +18,17 @@ jobs:
         run: bundle exec jekyll build --baseurl "/LJT-Homepage"
         env:
           JEKYLL_ENV: production
+      - name: Verify rendered content
+        run: |
+          echo "== Homepage title =="
+          grep -o '<title>[^<]*</title>' _site/index.html || true
+          echo "== Homepage checks =="
+          for s in "Junteng Liu" "HKUST NLP Group" "Hong Kong University of Science and Technology" "Ph.D. in Computer Science" "Shanghai Jiao Tong University" "MINIMAX" "Tencent WXG" "Shanghai AI Lab" "Zhiyuan Honor Scholarship" "SynLogic" "On the Perception Bottleneck" "On the Universal Truthfulness Hyperplane" "In-Context Sharpness" "C-Eval" "Composing Parameter-Efficient Modules" "jliugi@connect.ust.hk" "Vicent0205" "junteng88716710" "Skills"; do
+            if grep -q "$s" _site/index.html; then echo "FOUND: $s"; else echo "MISSING: $s"; fi
+          done
+          echo "== Publications page checks =="
+          for s in "SynLogic" "On the Perception Bottleneck" "On the Universal Truthfulness Hyperplane" "In-Context Sharpness" "C-Eval" "Composing Parameter-Efficient Modules"; do
+            if grep -q "$s" _site/publications/index.html; then echo "FOUND: $s"; else echo "MISSING: $s"; fi
+          done
+          echo "== Leftover placeholders =="
+          grep -Ril "Your Name\|Paper Title Number\|Blog Post Number\|Talk 1\|Stat 201" _site || echo "No leftover placeholders found"
