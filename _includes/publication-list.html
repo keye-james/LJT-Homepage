@@ -1,0 +1,8 @@
+{% for publication in site.data.publications %}
+<article class="publication-entry">
+  <h3>{{ publication.title }}</h3>
+  <p>{{ publication.authors }}</p>
+  <p><em>{{ publication.venue }}</em>{% if publication.contribution %} &middot; {{ publication.contribution }}{% endif %}</p>
+  {% if publication.code %}<p>Code: {{ publication.code }}</p>{% endif %}
+</article>
+{% endfor %}
